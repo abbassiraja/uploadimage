@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block title %}New Anonces{% endblock %}
+
+{% block body %}
+    <h1>Create new Anonces</h1>
+
+    {{ include('anonces/_form.html.twig') }}
+
+    <a href="{{ path('anonces_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Anonces{% endblock %}
+
+{% block body %}
+    <h1>Edit Anonces</h1>
+
+    {{ include('anonces/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('anonces_index') }}">back to list</a>
+
+    {{ include('anonces/_delete_form.html.twig') }}
+{% endblock %}
+
+{% block javascripts %}
+     <script src="{{ asset('js/images.js')}}"></script>
+{% endblock %}

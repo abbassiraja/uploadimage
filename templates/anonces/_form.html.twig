@@ -1,0 +1,19 @@
+
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{{ form_start(form) }}
+   {{ form_widget(form) }}
+
+   {# Vérifier si la route est "anonces_edit" on affiche les images #}
+   {% if app.request.attributes.get('_route') == 'anonces_edit' %}
+       <h2>Images</h2>
+       {% for image in anonce.images %}
+           <div>
+               <img src="{{ asset('/upload/' ~ image.name) }}" alt="Image" width="150">
+               <a href="{{ path('anonces_delete_image', {id: image.id}) }}" 
+               data-delete data-token="{{ csrf_token('delete' ~ image.id) }}">Supprimer</a>
+           </div>
+       {% endfor %}
+   {% endif %}
+   <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
